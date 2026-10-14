@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+
+# Entregables académicos: se mantienen en la carpeta externa.
+Bitacora.md
+*.pdf
+*.webm
+*.mp4
+*.zip

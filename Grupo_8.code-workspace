@@ -1,0 +1,49 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": {
+    "files.encoding": "utf8",
+    "files.exclude": { "**/__pycache__": true },
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestArgs": ["-v", "-s", ".", "-p", "test_*.py"]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Abrir simulador",
+        "type": "process",
+        "command": "python",
+        "args": ["-B", "app.py"],
+        "options": { "cwd": "${workspaceFolder}" },
+        "problemMatcher": [],
+        "group": { "kind": "build", "isDefault": true },
+        "presentation": { "reveal": "silent", "panel": "dedicated" }
+      },
+      {
+        "label": "Comprobar algoritmos",
+        "type": "process",
+        "command": "python",
+        "args": ["-B", "-m", "unittest", "-v"],
+        "options": { "cwd": "${workspaceFolder}" },
+        "problemMatcher": [],
+        "group": { "kind": "test", "isDefault": true }
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Simulador de autómatas",
+        "type": "debugpy",
+        "request": "launch",
+        "program": "${workspaceFolder}/app.py",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "justMyCode": true,
+        "env": { "PYTHONDONTWRITEBYTECODE": "1" }
+      }
+    ]
+  }
+}
